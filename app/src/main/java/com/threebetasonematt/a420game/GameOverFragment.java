@@ -31,17 +31,18 @@ public class GameOverFragment extends Fragment {
     private backToLobbyListener mListener;
     float mWinningAltitude;
 
-    SensorManager mSensorManager;
-    Sensor mPressure;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game_over, container, false);
 
+        //get added stuff from bundle
+        Bundle args = getArguments();
+        mWinningAltitude = args.getFloat(constants.KEY_FINAL_ALTITUDE, -1);
+
         mWinnerMessage = (TextView)view.findViewById(R.id.victor_message);
-        mWinnerMessage.setText(getVictorName() + " was the victor with an altitude of " + getWinningAltitude() + "!");
+        mWinnerMessage.setText(getVictorName() + " was the victor with an altitude of " + getWinningAltitude() + "m!");
 
         //button returns you to lobby
         mGG = (Button)view.findViewById(R.id.button_gg);
@@ -51,22 +52,6 @@ public class GameOverFragment extends Fragment {
                 mListener.returnToLobby();;
             }
         });
-
-        mSensorManager = (SensorManager)getActivity().getSystemService(Context.SENSOR_SERVICE);
-        mPressure = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
-
-        mSensorManager.registerListener(new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent event) {
-                mWinningAltitude = event.values[0];
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-                //if sensor accuracy changes
-            }
-        }, mPressure, SensorManager.SENSOR_DELAY_FASTEST);
-
 
         return view;
     }
@@ -89,11 +74,6 @@ public class GameOverFragment extends Fragment {
 
     //return victor's altitude
     public String getWinningAltitude(){
-
-
-
-
-
 
         return Float.toString(mWinningAltitude);
     }
