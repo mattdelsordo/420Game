@@ -1,5 +1,9 @@
 package com.threebetasonematt.a420game;
 
+/*
+Handles logging in and starting a game.
+ */
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 

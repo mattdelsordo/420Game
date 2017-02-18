@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">420Game</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_username_hint">masterOfApricots</string>
+    <string name="enter_username">Enter your username:</string>
 </resources>
