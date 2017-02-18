@@ -30,7 +30,8 @@
             android:text="@string/xxx_xxx_xxxx"
             android:textSize="24dp"
             android:layout_below="@id/joinlobby_addressindicator"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:id="@+id/joinlobby_address"/>
     </RelativeLayout>
 
     <ListView
@@ -47,6 +48,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_ready"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:id="@+id/button_join_ready"/>
 
 </RelativeLayout>

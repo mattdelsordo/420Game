@@ -18,7 +18,8 @@
         <activity android:name=".StartGameActivity" />
         <activity android:name=".HostLobbyActivity" />
         <activity android:name=".JoinLobbyActivity" />
-        <activity android:name=".EnterAddressActivity"></activity>
+        <activity android:name=".EnterAddressActivity" />
+        <activity android:name=".GameActivity"></activity>
     </application>
 
 </manifest>

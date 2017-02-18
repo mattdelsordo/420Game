@@ -27,19 +27,18 @@ public class EnterAddressActivity extends AppCompatActivity {
                 String address = mEnterAddress.getText().toString();
 
                 if(address.equals("") || address.equals(null)) Toast.makeText(EnterAddressActivity.this, R.string.blank_address_error, Toast.LENGTH_SHORT).show();
-                else{
-                    connectToLobby(); //not sure how this is gonna work but thats for later
-
+                else if (verifyAddress(address)){
                     Intent intent = new Intent(EnterAddressActivity.this, JoinLobbyActivity.class);
-                    intent.putExtra(constants.KEY_JOINING_LOBBY_ADDRESS, "how do get");
+                    intent.putExtra(constants.KEY_JOINING_LOBBY_ADDRESS, address);
                     startActivity(intent);
                 }
+                else Toast.makeText(EnterAddressActivity.this, R.string.invalid_address_error, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    //I have no idea how connecting to a lobby works at all
-    public void connectToLobby(){
-
-    }
+    //contact server and make sure that the address you're trying to connect to is real
+     private boolean verifyAddress(String address){
+         return true; //TODO: this is temporary
+     }
 }

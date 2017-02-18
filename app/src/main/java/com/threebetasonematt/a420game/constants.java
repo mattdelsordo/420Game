@@ -9,4 +9,9 @@ public class constants {
     public static final String KEY_USERNAME = "key.username";
     public static final String KEY_HOSTING_LOBBY_ADDRESS = "key.hostLobbyAddress";
     public static final String KEY_JOINING_LOBBY_ADDRESS = "key.joinLobbyAddress";
+    public static final String KEY_GAME_DURATION = "key.gameDuration";
+    public static final int RC_GAME = 2;
+
+    //default game duration
+    public static final int DEFAULT_DURATION = 30;
 }
