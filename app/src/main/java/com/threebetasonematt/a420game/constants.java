@@ -13,5 +13,6 @@ public class constants {
     public static final int RC_GAME = 2;
 
     //default game duration
-    public static final int DEFAULT_DURATION = 30;
+    public static final int DEFAULT_DURATION = 6;
+    public static final int SECOND = 1000;
 }

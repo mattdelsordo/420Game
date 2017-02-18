@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class GameActivity extends AppCompatActivity implements TimerFragment.GameOverListener{
+public class GameActivity extends AppCompatActivity implements TimerFragment.GameOverListener, GameOverFragment.backToLobbyListener{
 
 
 
@@ -29,11 +29,19 @@ public class GameActivity extends AppCompatActivity implements TimerFragment.Gam
         mGameOver = new GameOverFragment();
 
         getFragmentManager().beginTransaction().add(R.id.activity_game, mTimer).commit();
+        //mTimer.countdown();
     }
 
     //switch out Timer for Game Over message
     @Override
     public void gameOver() {
         getFragmentManager().beginTransaction().remove(mTimer).add(R.id.activity_game, mGameOver).commit();
+    }
+
+
+    //return to lobby
+    @Override
+    public void returnToLobby() {
+        finish();
     }
 }
