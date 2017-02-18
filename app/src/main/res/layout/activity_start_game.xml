@@ -11,44 +11,54 @@
     tools:context="com.threebetasonematt.a420game.StartGameActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:adjustViewBounds="true"
         android:layout_centerHorizontal="true"
         android:paddingTop="50dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/app_banner"
+        android:id="@+id/banner_start"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_welcome_text"
-        android:layout_above="@+id/start_layout_buttons"
-        android:layout_centerHorizontal="true"
-        android:textSize="18dp"
-        android:paddingBottom="30dp"
-        android:id="@+id/startgame_welcometext"/>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:layout_centerInParent="true"
-        android:id="@+id/start_layout_buttons">
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/banner_start">
 
-        <Button
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/join"
-            android:id="@+id/button_join_game"/>
+            android:text="@string/default_welcome_text"
+            android:layout_above="@+id/start_layout_buttons"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/startgame_welcometext"/>
 
-        <Button
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/host"
-            android:id="@+id/button_host_game"/>
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_centerInParent="true"
+            android:id="@+id/start_layout_buttons">
 
-    </LinearLayout>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/join"
+                android:id="@+id/button_join_game"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/host"
+                android:id="@+id/button_host_game"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
 
 </RelativeLayout>
