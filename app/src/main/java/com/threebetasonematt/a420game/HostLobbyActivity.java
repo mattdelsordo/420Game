@@ -1,6 +1,7 @@
 package com.threebetasonematt.a420game;
 
 import android.content.Intent;
+import android.hardware.SensorEvent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class HostLobbyActivity extends AppCompatActivity {
+public class HostLobbyActivity extends AppCompatActivity{
 
     String mLobbyAddress;
     TextView mAddressLabel;

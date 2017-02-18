@@ -66,8 +66,6 @@ public class GameOverFragment extends Fragment {
                 //if sensor accuracy changes
             }
         }, mPressure, SensorManager.SENSOR_DELAY_FASTEST);
-
-
         return view;
     }
 

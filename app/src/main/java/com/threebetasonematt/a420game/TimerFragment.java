@@ -45,7 +45,7 @@ public class TimerFragment extends Fragment {
         mCountdownView = (TextView)view.findViewById(R.id.countdown_clock);
 
         //set game duration
-        mGameDuration = args.getInt(constants.KEY_GAME_DURATION, 30); //get game duration from whatever called this
+        mGameDuration = args.getInt(constants.KEY_GAME_DURATION, 5); //get game duration from whatever called this
 
         //start new countdowntimer
         mGameTimer = new CountDownTimer(mGameDuration * constants.SECOND, constants.SECOND){
