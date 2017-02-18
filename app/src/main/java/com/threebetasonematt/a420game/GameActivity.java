@@ -11,6 +11,7 @@ public class GameActivity extends AppCompatActivity implements TimerFragment.Gam
 
     TimerFragment mTimer;
     GameOverFragment mGameOver;
+    float mInitialAltitude;
 
     //TODO: What I want to do here is make one fragment for the timer and one for the game winner and then switch the two
 

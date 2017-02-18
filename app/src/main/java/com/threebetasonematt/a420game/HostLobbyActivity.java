@@ -21,6 +21,8 @@ public class HostLobbyActivity extends AppCompatActivity{
     Button mButtonReady;
     private SensorManager mSensorManager = null;
 
+    float mCurrentPressure = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +46,16 @@ public class HostLobbyActivity extends AppCompatActivity{
 
                 //TODO: wait for all players to be ready
 
+                //stop listening for pressure
+                mSensorManager.unregisterListener(mSensorListener);
+
+                //calculate initial altitude
+                float initialAltitude = mSensorManager.getAltitude(mSensorManager.PRESSURE_STANDARD_ATMOSPHERE, mCurrentPressure);
 
                 //begin game
                 Intent intent = new Intent(HostLobbyActivity.this, GameActivity.class);
                 intent.putExtra(constants.KEY_GAME_DURATION, constants.DEFAULT_DURATION);
+                intent.putExtra(constants.KEY_INITIAL_ALTITUDE, initialAltitude);
                 startActivityForResult(intent, constants.RC_GAME); //not sure if the forResult is needed
             }
         });
@@ -68,11 +76,11 @@ public class HostLobbyActivity extends AppCompatActivity{
             // if you use this listener as listener of only one sensor (ex, Pressure), then you don't need to check sensor type.
             if( Sensor.TYPE_PRESSURE == event.sensor.getType() ) {
                 pressure_value = event.values[0];
-                mAddressLabel = (TextView)findViewById(R.id.hostlobby_address);
-                mAddressLabel.setText(String.valueOf(pressure_value));
+                //mAddressLabel = (TextView)findViewById(R.id.hostlobby_address);
+               // mAddressLabel.setText(String.valueOf(pressure_value));
+
+                mCurrentPressure = pressure_value;
             }
         }
     };
-
-
 }
