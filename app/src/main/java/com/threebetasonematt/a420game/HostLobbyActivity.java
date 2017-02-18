@@ -14,6 +14,8 @@ import android.hardware.SensorManager;
 
 import org.w3c.dom.Text;
 
+import java.util.Random;
+
 public class HostLobbyActivity extends AppCompatActivity{
 
     String mLobbyAddress;
@@ -82,4 +84,6 @@ public class HostLobbyActivity extends AppCompatActivity{
             }
         }
     };
+
+
 }

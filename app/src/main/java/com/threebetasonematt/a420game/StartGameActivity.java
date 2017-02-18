@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class StartGameActivity extends AppCompatActivity {
 
     String mUsername;
@@ -32,7 +34,7 @@ public class StartGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StartGameActivity.this, HostLobbyActivity.class);
-                intent.putExtra(constants.KEY_HOSTING_LOBBY_ADDRESS, generateLobbyAddress());
+                intent.putExtra(constants.KEY_HOSTING_LOBBY_ADDRESS, getValidAddress());
                 startActivity(intent);
             }
         });
@@ -51,7 +53,28 @@ public class StartGameActivity extends AppCompatActivity {
 
     //this generates an address for the room
     //probably not going to end up as a string
-    private String generateLobbyAddress(){
-        return "0000000";
+    //generates a randomized address and then makes sure that that address is not in the database yet
+    private String generateAddress(){
+        String address = "";
+        Random rand = new Random();
+
+        while(address.length() < constants.ADDRESS_LENGTH){
+            address += constants.ALPHABET.charAt(rand.nextInt(constants.ALPHABET.length()));
+        }
+
+        return address;
     }
+
+
+    private String getValidAddress(){
+        String address;
+        do{
+            address = generateAddress();
+        }while(!databaseContainsAddress(address));
+
+        return address;
+    }
+
+    //checks whether the address is in the database
+    private boolean databaseContainsAddress(String address){return true; }//TODO: this is temporary until we have the server set up
 }
