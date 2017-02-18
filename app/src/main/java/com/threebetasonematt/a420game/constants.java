@@ -11,9 +11,10 @@ public class constants {
     public static final String KEY_JOINING_LOBBY_ADDRESS = "key.joinLobbyAddress";
     public static final String KEY_GAME_DURATION = "key.gameDuration";
     public static final String KEY_INITIAL_ALTITUDE = "key.initialAltitude";
+    public static final String KEY_FINAL_ALTITUDE = "key.initialAltitude";
     public static final int RC_GAME = 2;
 
     //default game duration
-    public static final int DEFAULT_DURATION = 6;
+    public static final int DEFAULT_DURATION = 31;
     public static final int SECOND = 1000;
 }

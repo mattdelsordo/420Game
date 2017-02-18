@@ -54,7 +54,7 @@ public class TimerFragment extends Fragment {
             public void onTick(long millisUntilFinished) {
                 int timeLeft = ((int)millisUntilFinished/constants.SECOND);
                 if(timeLeft +1 != mGameDuration) mCountdownView.setText(Integer.toString(timeLeft));
-                Log.i(TAG, timeLeft + " " + mGameDuration);
+                //Log.i(TAG, timeLeft + " " + mGameDuration);
 
             }
 
