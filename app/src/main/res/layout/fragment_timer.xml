@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:id="@+id/countdown_clock"
-        android:text="30"
+        android:text="@string/go"
         android:textSize="80dp"/>
 
 </RelativeLayout>

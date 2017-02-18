@@ -45,15 +45,17 @@ public class TimerFragment extends Fragment {
         mCountdownView = (TextView)view.findViewById(R.id.countdown_clock);
 
         //set game duration
-        mGameDuration = args.getInt(constants.KEY_GAME_DURATION, 5); //get game duration from whatever called this
+        mGameDuration = args.getInt(constants.KEY_GAME_DURATION, constants.DEFAULT_DURATION); //get game duration from whatever called this
 
         //start new countdowntimer
         mGameTimer = new CountDownTimer(mGameDuration * constants.SECOND, constants.SECOND){
 
             @Override
             public void onTick(long millisUntilFinished) {
-                mGameDuration--;
-                mCountdownView.setText(Integer.toString(mGameDuration));
+                int timeLeft = ((int)millisUntilFinished/constants.SECOND);
+                if(timeLeft +1 != mGameDuration) mCountdownView.setText(Integer.toString(timeLeft));
+                Log.i(TAG, timeLeft + " " + mGameDuration);
+
             }
 
             @Override
@@ -67,46 +69,9 @@ public class TimerFragment extends Fragment {
         return view;
     }
 
-//    public void countdown(){
-//        Log.i(TAG, "countdown started");
-//
-//        Thread t = new Thread(){
-//            @Override
-//            public void run() {
-//                Log.i(TAG, "thread running");
-//                super.run();
-//                try{
-//                    while(!isInterrupted() && mGameDuration > -1){
-//                        Log.i(TAG, "countdown running");
-//                        Thread.sleep(constants.SECOND);
-//                        Log.i(TAG, "sleep ended");
-//                        getActivity().runOnUiThread(new Runnable(){
-//                            @Override
-//                            public void run() {
-//                                //update textview
-//                                mGameDuration--;
-//                                Log.i(TAG, Integer.toString(mGameDuration));
-//                                updateTextView(mGameDuration);
-//                            }
-//                        });
-//
-//                        mListener.gameOver();
-//                    }
-//                }catch (InterruptedException e){
-//
-//                }
-//            }
-//        };
-//
-//        t.run();
-//    }
 
     public void startTimer(){
         mGameTimer.start();
-    }
-
-    private void updateTextView(int time){
-        mCountdownView.setText(Integer.toString(time));
     }
 
     //interface to return gameover code from timer

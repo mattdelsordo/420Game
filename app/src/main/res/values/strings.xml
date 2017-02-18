@@ -20,4 +20,5 @@
     <string name="invalid_address_error">Invalid room address!</string>
     <string name="default_victor_text">Default is the winner with an altitude of 500 ft!</string>
     <string name="gg">GG</string>
+    <string name="go">GO!</string>
 </resources>
