@@ -20,7 +20,6 @@ public class HostLobbyActivity extends AppCompatActivity{
     TextView mAddressLabel;
     Button mButtonReady;
     private SensorManager mSensorManager = null;
-
     float mCurrentPressure = 0;
 
     @Override
