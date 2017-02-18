@@ -1,55 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_enter_address"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.threebetasonematt.a420game.InitialActivity">
+    tools:context="com.threebetasonematt.a420game.EnterAddressActivity">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="50dp"
-        android:src="@mipmap/ic_launcher"/>
-
-
+        android:text="Enter a lobby address:"
+        android:layout_above="@+id/layout_address_entry"
+        android:textSize="30dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/layout_username_entry"
+        android:id="@+id/layout_address_entry"
         android:layout_centerInParent="true">
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:hint="@string/default_username"
+            android:hint="@string/default_lobby_address"
             android:layout_weight="2"
-            android:id="@+id/edittext_enter_username"
+            android:id="@+id/edittext_enterAddress"
             android:textSize="25dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/play"
+            android:text="@string/connect"
             android:layout_centerInParent="true"
-            android:id="@+id/button_splash_play"/>
+            android:id="@+id/button_enterAddress"/>
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_username"
-        android:layout_above="@+id/layout_username_entry"
-        android:textSize="28dp" />
-
-
 
 </RelativeLayout>

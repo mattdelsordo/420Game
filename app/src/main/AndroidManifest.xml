@@ -8,14 +8,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".InitialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartGameActivity"></activity>
+        <activity android:name=".StartGameActivity" />
+        <activity android:name=".HostLobbyActivity" />
+        <activity android:name=".JoinLobbyActivity" />
+        <activity android:name=".EnterAddressActivity"></activity>
     </application>
 
 </manifest>

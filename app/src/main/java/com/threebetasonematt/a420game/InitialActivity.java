@@ -7,15 +7,14 @@ Handles logging in and starting a game.
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class InitialActivity extends AppCompatActivity {
 
-    public static final String TAG = "MainActivity";
+    public static final String TAG = "InitialActivity";
 
     Button mPlayButton;
     EditText mEnterUsername;
@@ -36,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
                 String username = mEnterUsername.getText().toString();
                 if(username.equals("") || username.equals(null)){
                     //display error if the username is bad
-                    Toast.makeText(MainActivity.this, "Please enter a username!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InitialActivity.this, R.string.blank_username_error, Toast.LENGTH_SHORT).show();
                 }
                 else{
                     //open next activity
-                    Intent intent = new Intent(MainActivity.this, StartGameActivity.class);
+                    Intent intent = new Intent(InitialActivity.this, StartGameActivity.class);
                     intent.putExtra(constants.KEY_USERNAME, username);
                     startActivity(intent);
                 }
