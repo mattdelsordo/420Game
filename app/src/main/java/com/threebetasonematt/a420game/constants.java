@@ -17,4 +17,8 @@ public class constants {
     //default game duration
     public static final int DEFAULT_DURATION = 31;
     public static final int SECOND = 1000;
+
+    //this string contains all the characters that an address can be made up of
+    public static final String ALPHABET = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXVCBNM";
+    public static final int ADDRESS_LENGTH = 8;
 }
