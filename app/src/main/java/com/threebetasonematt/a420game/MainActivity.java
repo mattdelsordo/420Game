@@ -4,12 +4,14 @@ package com.threebetasonematt.a420game;
 Handles logging in and starting a game.
  */
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,10 +35,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = mEnterUsername.getText().toString();
                 if(username.equals("") || username.equals(null)){
-                    //print toast
+                    //display error if the username is bad
+                    Toast.makeText(MainActivity.this, "Please enter a username!", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     //open next activity
+                    Intent intent = new Intent(MainActivity.this, StartGameActivity.class);
+                    intent.putExtra(constants.KEY_USERNAME, username);
+                    startActivity(intent);
                 }
             }
         });
