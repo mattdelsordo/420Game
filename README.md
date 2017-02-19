@@ -1,4 +1,3 @@
-# 420
 ![alt tag](https://github.com/mattdelsordo/420Game/blob/master/app/src/main/res/drawable/app_banner.png)
 ##An Android game where the highest person wins.
 
