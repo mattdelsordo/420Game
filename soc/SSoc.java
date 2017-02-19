@@ -109,8 +109,8 @@ public class SSoc{
 			Thread.sleep(2000);
 			for(int i=0;i<players;i++){
 				//send top score
-				System.out.println("reached pWriter loop");
-				System.out.println("scoreString value = "+scoreString);
+				//System.out.println("reached pWriter loop");
+				//System.out.println("scoreString value = "+scoreString);
 				pWriter[i].println(scoreString);
 				pWriter[i].flush();
 			}
