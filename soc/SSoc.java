@@ -77,7 +77,7 @@ public class SSoc{
 
 							boolean higher=false;
 							if(bufferedReader[i].ready())
-							while (finPlayer<=0&&(thisLine = bufferedReader[i].readLine()) != null) {
+							while (finPlayers<=0&&(thisLine = bufferedReader[i].readLine()) != null) {
 								if(higher){
 									topPlayer = thisLine;
 								}
