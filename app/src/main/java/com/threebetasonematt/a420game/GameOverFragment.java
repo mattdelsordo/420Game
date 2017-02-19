@@ -45,19 +45,19 @@ public class GameOverFragment extends Fragment {
 
         mWinnerMessage = (TextView)view.findViewById(R.id.victor_message);
         String thisLine="";
-//        try{
-//            BufferedReader reader = SocketHandler.getBR();
-//            thisLine = reader.readLine();
-//            while(reader.ready()){
-//                System.out.println(thisLine);
-//                thisLine = reader.readLine();
-//            }
-//
-//        }catch(Exception e){}
-        //System.out.println(thisLine);
+        try{
+            BufferedReader reader = SocketHandler.getBR();
+            thisLine = reader.readLine();
+            while(reader.ready()){
+                System.out.println(thisLine);
+                thisLine = reader.readLine();
+            }
+
+        }catch(Exception e){}
+        System.out.println(thisLine);
         //get message from server
-        //mWinnerMessage.setText(thisLine);
-        mWinnerMessage.setText("You got "+mWinningAltitude+" m high");
+        mWinnerMessage.setText(thisLine);
+        //mWinnerMessage.setText("You got "+mWinningAltitude+" m high");
         //button returns you to lobby
         mGG = (Button)view.findViewById(R.id.button_gg);
         mGG.setOnClickListener(new View.OnClickListener() {

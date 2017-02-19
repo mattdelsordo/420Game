@@ -17,7 +17,7 @@ public class SSoc{
 	private static String topPlayer = "";
 	private static float topScore = (float)Integer.MIN_VALUE;
 
-
++
 
 	public static void main(String[] args){
 
@@ -78,7 +78,7 @@ public class SSoc{
 
 							boolean higher=false;
 							if(bufferedReader[i].ready())
-							while (finPlayers<=0&&(thisLine = bufferedReader[i].readLine()) != null) {
+							while (finPlayers>0&&(thisLine = bufferedReader[i].readLine()) != null) {
 								if(higher){
 									topPlayer = thisLine;
 								}
