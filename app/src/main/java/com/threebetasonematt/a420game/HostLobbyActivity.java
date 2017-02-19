@@ -60,25 +60,6 @@ public class HostLobbyActivity extends AppCompatActivity{
         mAddressLabel.setText(mLobbyAddress);
 
 
-        Socket soc=null;
-        PrintWriter pw=null;
-        try {
-            soc = new Socket("184.72.127.7", 4333);
-            SocketHandler.setSocket(soc);
-            pw = SocketHandler.getPW();
-            pw.println("ready");
-            pw.flush();
-
-
-            Thread.sleep(1000);
-            pw.println("done");
-            pw.flush();
-            Thread.sleep(4000);
-            pw.println("3024\nTim");
-            pw.flush();
-        }
-        catch(Exception e){mAddressLabel.setText("butts");}
-
 
 
         //handle ready button
@@ -96,13 +77,22 @@ public class HostLobbyActivity extends AppCompatActivity{
 
                 //calculate initial altitude
                 float initialAltitude = mSensorManager.getAltitude(mSensorManager.PRESSURE_STANDARD_ATMOSPHERE, mCurrentPressure);
-
+                Socket soc=null;
+                PrintWriter pw=null;
+                try {
+                    soc = new Socket("184.72.127.7", 4333);
+                    SocketHandler.setSocket(soc);
+                    pw = SocketHandler.getPW();
+                    pw.println("ready");
+                    pw.flush();
+                }
+                catch(Exception e){mAddressLabel.setText("butts");}
 
                 //wait for start from server
                 try{
                     String thisLine;
                     BufferedReader reader = SocketHandler.getBR();
-                    while((reader.readLine()).equalsIgnoreCase("ready")){
+                    while(!(reader.readLine()).equalsIgnoreCase("ready")){
 
                     }
 
