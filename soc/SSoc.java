@@ -47,7 +47,8 @@ public class SSoc{
 									ready=true;
 									//send back ready
 									for(int j=0; j<players;j++ ){
-										//pWriter[j].println("ready");
+										pWriter[j].println("ready");
+										pWriter[j].flush();
 									}
 
 								}
