@@ -14,7 +14,7 @@ public class Client {
     }*/
     try {
       try {
-        Socket soc = new Socket("localhost", 4333);
+      	   Socket soc = new Socket("184.72.127.7", 4333);
 		OutputStreamWriter os = new OutputStreamWriter(soc.getOutputStream());
 		PrintWriter pw = new PrintWriter(os);
 		

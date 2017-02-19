@@ -9,7 +9,7 @@ public class SSoc{
 	private static String inputLine;
 	private static String thisLine;
 	private static int port = 4333;
-	private static int players = 1;
+	private static int players = 2;
 	private static boolean ready=false;
 	private static boolean done=false;
 	private static boolean gameOver=false;
