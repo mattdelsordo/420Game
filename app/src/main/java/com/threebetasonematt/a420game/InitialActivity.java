@@ -5,6 +5,10 @@ Handles logging in and starting a game.
  */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,11 +22,16 @@ public class InitialActivity extends AppCompatActivity {
 
     Button mPlayButton;
     EditText mEnterUsername;
+    SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //run barometer check on first time
+        prefs =
+
 
         //get reference for username box
         mEnterUsername = (EditText)findViewById(R.id.edittext_enter_username);
@@ -47,5 +56,13 @@ public class InitialActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
+    public void barometerCheck(){
+        //do check for barometer
+        PackageManager manager = getPackageManager();
+        boolean hasBarometer = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_BAROMETER);
+        if(!hasBarometer) Toast.makeText(InitialActivity.this, R.string.no_barometer_warning, Toast.LENGTH_LONG).show();
     }
 }

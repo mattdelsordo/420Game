@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="default_username">billFredrickson</string>
+    <string name="default_username">celloMaster96</string>
     <string name="enter_username">Enter your username:</string>
     <string name="play">play</string>
     <string name="default_welcome_text">Ready to get high, billFredrickson?</string>
@@ -22,4 +22,5 @@
     <string name="gg">GG</string>
     <string name="go">GO!</string>
     <string name="leaderboards">LEADERBOARDS</string>
+    <string name="no_barometer_warning">No barometer present</string>
 </resources>
