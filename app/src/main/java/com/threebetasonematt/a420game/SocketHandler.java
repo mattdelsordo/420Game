@@ -15,6 +15,7 @@ public class SocketHandler {
     private static OutputStreamWriter osw;
     private static PrintWriter pw;
     private static BufferedReader br;
+    public static String username;
 
 
     public static synchronized Socket getSocket(){

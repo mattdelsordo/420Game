@@ -80,6 +80,9 @@ public class SSoc{
 							while (!gameOver&&(thisLine = bufferedReader[i].readLine()) != null) {
 								if(higher){
 									topPlayer = thisLine;
+									if(finPlayers<=0){
+										gameOver=true;
+									}
 								}
 								if(thisLine.matches(".*\\d.*")){
 									System.out.println("Score "+thisLine);
@@ -88,12 +91,10 @@ public class SSoc{
 										topScore=Float.parseFloat(thisLine);
 									}
 									finPlayers--;
-									if(finPlayers<=0){
-										gameOver=true;
-									}
-									System.out.println(finPlayers);
 								}
-
+							}
+							if(finPlayers<=0){
+								gameOver=true;
 							}
 						}
 						catch(Exception e){}
@@ -105,7 +106,7 @@ public class SSoc{
 			}
 			String scoreString = topPlayer + " got "+topScore+" meters high";
 			System.out.println(scoreString);
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			for(int i=0;i<players;i++){
 				//send top score
 				pWriter[i].println(scoreString);

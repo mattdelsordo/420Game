@@ -49,10 +49,12 @@ public class GameOverFragment extends Fragment {
             BufferedReader reader = SocketHandler.getBR();
             thisLine = reader.readLine();
             while(reader.ready()){
+                System.out.println(thisLine);
                 thisLine = reader.readLine();
             }
 
         }catch(Exception e){}
+        System.out.println(thisLine);
         //get message from server
         mWinnerMessage.setText(thisLine);
 

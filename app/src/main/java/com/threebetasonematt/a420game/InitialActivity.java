@@ -50,6 +50,7 @@ public class InitialActivity extends AppCompatActivity {
                     //open next activity
                     Intent intent = new Intent(InitialActivity.this, StartGameActivity.class);
                     intent.putExtra(constants.KEY_USERNAME, username);
+                    SocketHandler.username = username;
                     startActivity(intent);
                 }
             }

@@ -26,6 +26,7 @@ public class GameActivity extends AppCompatActivity implements TimerFragment.Gam
     TimerFragment mTimer;
     GameOverFragment mGameOver;
     float mInitialAltitude;
+    String mUsername;
 
     private SensorManager mSensorManager = null;
     float mCurrentPressure = 0;
@@ -86,14 +87,13 @@ public class GameActivity extends AppCompatActivity implements TimerFragment.Gam
             pw.println("done");
             pw.flush();
             Thread.sleep(1500);
-            pw.println(String.valueOf(altitudeChange)+"\n"+getIntent().getStringExtra(constants.KEY_USERNAME));
+            pw.println(String.valueOf(altitudeChange)+"\n"+SocketHandler.username);
             pw.flush();
         }
         catch(Exception e){}
 
         getFragmentManager().beginTransaction().remove(mTimer).add(R.id.activity_game, mGameOver).commit();
     }
-
 
     //return to lobby
     @Override
