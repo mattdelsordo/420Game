@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +44,14 @@ public class GameOverFragment extends Fragment {
         mWinningAltitude = args.getFloat(constants.KEY_FINAL_ALTITUDE, -1);
 
         mWinnerMessage = (TextView)view.findViewById(R.id.victor_message);
+        String thisLine;
+        try{
+
+            BufferedReader reader = SocketHandler.getBR();
+            thisLine = reader.readLine();
+
+        }catch(Exception e){}
+        //get message from server
         mWinnerMessage.setText(getVictorName() + " was the victor with an altitude of " + getWinningAltitude() + "m!");
 
         //button returns you to lobby

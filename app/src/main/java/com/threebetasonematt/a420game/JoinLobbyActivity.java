@@ -14,6 +14,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
 public class JoinLobbyActivity extends AppCompatActivity {
 
     String mLobbyAddress = "error";
@@ -47,6 +51,12 @@ public class JoinLobbyActivity extends AppCompatActivity {
 
         //handle ready button
         mButtonReady = (Button)findViewById(R.id.button_join_ready);
+
+
+
+
+
+
         mButtonReady.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +69,26 @@ public class JoinLobbyActivity extends AppCompatActivity {
 
                 //calculate initial altitude
                 float initialAltitude = mSensorManager.getAltitude(mSensorManager.PRESSURE_STANDARD_ATMOSPHERE, mCurrentPressure);
+
+                Socket soc=null;
+                PrintWriter pw=null;
+                try {
+                    soc = new Socket("184.72.127.7", 4333);
+                    SocketHandler.setSocket(soc);
+                    pw = SocketHandler.getPW();
+                }
+                catch(Exception e){}
+
+                //wait for start from server
+
+                try{
+                    String thisLine;
+                    BufferedReader reader = SocketHandler.getBR();
+                    while((reader.readLine()).equalsIgnoreCase("ready")){
+
+                    }
+
+                }catch(Exception e){}
 
                 //begin game
                 Intent intent = new Intent(JoinLobbyActivity.this, GameActivity.class);

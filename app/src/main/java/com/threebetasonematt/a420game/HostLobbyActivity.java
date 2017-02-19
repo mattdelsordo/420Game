@@ -18,6 +18,12 @@ import android.hardware.SensorManager;
 
 import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.Random;
 
 public class HostLobbyActivity extends AppCompatActivity{
@@ -69,8 +75,31 @@ public class HostLobbyActivity extends AppCompatActivity{
                 //calculate initial altitude
                 float initialAltitude = mSensorManager.getAltitude(mSensorManager.PRESSURE_STANDARD_ATMOSPHERE, mCurrentPressure);
 
+                Socket soc=null;
+                PrintWriter pw=null;
+                try {
+                    soc = new Socket("184.72.127.7", 4333);
+                    SocketHandler.setSocket(soc);
+                    pw = SocketHandler.getPW();
+                    pw.println("ready");
+                    pw.flush();
+                }
+                catch(Exception e){}
+
+                //wait for start from server
+                try{
+                    String thisLine;
+                    BufferedReader reader = SocketHandler.getBR();
+                    while((reader.readLine()).equalsIgnoreCase("ready")){
+
+                    }
+
+                }catch(Exception e){}
+
+
                 //begin game
                 Intent intent = new Intent(HostLobbyActivity.this, GameActivity.class);
+
                 intent.putExtra(constants.KEY_GAME_DURATION, constants.DEFAULT_DURATION);
                 intent.putExtra(constants.KEY_INITIAL_ALTITUDE, initialAltitude);
                 startActivityForResult(intent, constants.RC_GAME); //not sure if the forResult is needed
