@@ -44,7 +44,7 @@ public class GameOverFragment extends Fragment {
         mWinningAltitude = args.getFloat(constants.KEY_FINAL_ALTITUDE, -1);
 
         mWinnerMessage = (TextView)view.findViewById(R.id.victor_message);
-        String thisLine;
+        String thisLine="";
         try{
 
             BufferedReader reader = SocketHandler.getBR();
@@ -52,7 +52,7 @@ public class GameOverFragment extends Fragment {
 
         }catch(Exception e){}
         //get message from server
-        mWinnerMessage.setText(getVictorName() + " was the victor with an altitude of " + getWinningAltitude() + "m!");
+        mWinnerMessage.setText(thisLine);
 
         //button returns you to lobby
         mGG = (Button)view.findViewById(R.id.button_gg);
