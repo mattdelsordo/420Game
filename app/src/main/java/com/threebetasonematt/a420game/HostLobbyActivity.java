@@ -69,11 +69,11 @@ public class HostLobbyActivity extends AppCompatActivity{
             pw.println("ready");
             pw.flush();
 
-            
+
             Thread.sleep(1000);
             pw.println("done");
             pw.flush();
-            Thread.sleep(1000);
+            Thread.sleep(4000);
             pw.println("1000\n Bob");
             pw.flush();
         }
