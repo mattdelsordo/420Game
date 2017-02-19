@@ -21,4 +21,5 @@
     <string name="default_victor_text">Default is the winner with an altitude of 500 ft!</string>
     <string name="gg">GG</string>
     <string name="go">GO!</string>
+    <string name="leaderboards">LEADERBOARDS</string>
 </resources>

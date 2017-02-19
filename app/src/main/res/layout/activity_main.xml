@@ -37,7 +37,8 @@
                 android:hint="@string/default_username"
                 android:layout_weight="2"
                 android:id="@+id/edittext_enter_username"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:singleLine="true"/>
 
             <Button
                 android:layout_width="wrap_content"
