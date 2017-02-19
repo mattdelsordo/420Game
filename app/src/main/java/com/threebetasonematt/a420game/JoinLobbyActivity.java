@@ -84,7 +84,7 @@ public class JoinLobbyActivity extends AppCompatActivity {
                 try{
                     String thisLine;
                     BufferedReader reader = SocketHandler.getBR();
-                    while((reader.readLine()).equalsIgnoreCase("ready")){
+                    while(!(reader.readLine()).equalsIgnoreCase("ready")){
 
                     }
 

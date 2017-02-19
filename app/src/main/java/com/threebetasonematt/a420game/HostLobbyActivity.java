@@ -92,12 +92,15 @@ public class HostLobbyActivity extends AppCompatActivity{
                 try{
                     String thisLine;
                     BufferedReader reader = SocketHandler.getBR();
-                    while(!(reader.readLine()).equalsIgnoreCase("ready")){
-
+                    System.out.println("before ready loop");
+                    while(!(thisLine = reader.readLine()).equalsIgnoreCase("ready")){
+                        mAddressLabel.setText(thisLine);
                     }
 
-                }catch(Exception e){}
-
+                }catch(Exception e){
+                    e.printStackTrace();
+                    mAddressLabel.setText("error");}
+                System.out.println("after ready loop");
 
                 //begin game
                 Intent intent = new Intent(HostLobbyActivity.this, GameActivity.class);
