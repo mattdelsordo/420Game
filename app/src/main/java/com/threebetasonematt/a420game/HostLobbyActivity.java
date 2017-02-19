@@ -93,10 +93,12 @@ public class HostLobbyActivity extends AppCompatActivity{
                     String thisLine;
                     BufferedReader reader = SocketHandler.getBR();
                     System.out.println("before ready loop");
-                    while(!(thisLine = reader.readLine()).equalsIgnoreCase("ready")){
-                        mAddressLabel.setText(thisLine);
+                    while(true){
+                        thisLine = reader.readLine();
+                        System.out.println(thisLine);
+                        if(thisLine.equalsIgnoreCase("ready"));
+                            break;
                     }
-
                 }catch(Exception e){
                     e.printStackTrace();
                     mAddressLabel.setText("error");}

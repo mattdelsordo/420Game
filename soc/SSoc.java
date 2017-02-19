@@ -46,7 +46,7 @@ public class SSoc{
 								if(thisLine.equalsIgnoreCase("ready")){
 									ready=true;
 									//send back ready
-									Thread.sleep(2000);
+									for(int k=0; k<500;k++)
 									for(int j=0; j<players;j++ ){
 										pWriter[j].println("ready");
 									}
