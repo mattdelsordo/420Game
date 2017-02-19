@@ -47,7 +47,7 @@ public class SSoc{
 									ready=true;
 									//send back ready
 									for(int j=0; j<players;j++ ){
-										pWriter[j].println("ready");
+										//pWriter[j].println("ready");
 									}
 
 								}
@@ -109,7 +109,10 @@ public class SSoc{
 			Thread.sleep(2000);
 			for(int i=0;i<players;i++){
 				//send top score
+				System.out.println("reached pWriter loop");
+				System.out.println("scoreString value = "+scoreString);
 				pWriter[i].println(scoreString);
+				pWriter[i].flush();
 			}
 			//push to devices, topPlayer
 		}
