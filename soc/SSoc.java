@@ -16,12 +16,12 @@ public class SSoc{
 	private static boolean gameOver=false;
 	private static String topPlayer = "";
 	private static float topScore = (float)Integer.MIN_VALUE;
-	
-	
-	
+
+
+
 	public static void main(String[] args){
-	
-	
+
+
 		clientSocket = new Socket[players];
 		bufferedReader = new BufferedReader[players];
 		pWriter = new PrintWriter[players];
@@ -62,7 +62,7 @@ public class SSoc{
 										System.out.println("done");
 										done=true;
 										//send back done
-										pWriter[i].println("done");
+										//pWriter[i].println("done");
 									}
 								}
 							}
@@ -71,7 +71,7 @@ public class SSoc{
 					}
 					else{
 						try{
-							
+
 							boolean higher=false;
 							if(bufferedReader[i].ready())
 							while (!gameOver&&(thisLine = bufferedReader[i].readLine()) != null) {
@@ -86,7 +86,7 @@ public class SSoc{
 									topPlayer = thisLine;
 								}
 							}
-					
+
 
 						}
 						catch(Exception e){}
@@ -94,10 +94,11 @@ public class SSoc{
 					if(finPlayers==0){
 						gameOver=true;
 					}
-			
+
 				}
 
 			}
+			Thread.sleep(10000);
 			String scoreString = topPlayer + "got "+topScore+" meters high";
 			System.out.println(scoreString);
 			for(int i=0;i<players;i++){
@@ -108,7 +109,7 @@ public class SSoc{
 		}
 		catch(Exception ee) {}
 
-		
+
 
 	}
 }
