@@ -82,6 +82,7 @@ public class SSoc{
 										topScore=Integer.parseInt(thisLine);
 									}
 									finPlayers--;
+									System.out.println(finPlayers);
 								}
 								if(higher){
 									topPlayer = thisLine;
