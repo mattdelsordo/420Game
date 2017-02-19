@@ -23,4 +23,5 @@
     <string name="go">GO!</string>
     <string name="leaderboards">LEADERBOARDS</string>
     <string name="no_barometer_warning">No barometer present</string>
+    <string name="no_baromater_sorry">Your phone doesn\'t have a barometer! Sorry!</string>
 </resources>

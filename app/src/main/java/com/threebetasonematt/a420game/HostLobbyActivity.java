@@ -2,6 +2,8 @@ package com.threebetasonematt.a420game;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -54,6 +56,7 @@ public class HostLobbyActivity extends AppCompatActivity{
         //handle ready button
         mButtonReady = (Button)findViewById(R.id.button_host_ready);
         mButtonReady.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
             @Override
             public void onClick(View v) {
                 mButtonReady.setEnabled(false);
@@ -85,6 +88,7 @@ public class HostLobbyActivity extends AppCompatActivity{
             // when accuracy changed, this method will be called.
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
         @Override
         public void onSensorChanged(SensorEvent event) {
             // when pressure value is changed, this method will be called.

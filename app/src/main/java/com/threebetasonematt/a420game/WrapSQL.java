@@ -3,7 +3,7 @@ package com.threebetasonematt.a420game;
 import java.sql.*;
 import android.content.Intent;
 
-protected class WrapSQL {
+class WrapSQL {
 
     String username, gameid;
     float startingAlt, endingAlt, altitudeDifference;
@@ -11,7 +11,7 @@ protected class WrapSQL {
 
     private String insertUserDetails(UserDetails ud)
     {
-
+        return "";
     }
 
     private class UserDetails
