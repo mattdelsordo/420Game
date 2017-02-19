@@ -18,6 +18,8 @@ public class Client {
 		OutputStreamWriter os = new OutputStreamWriter(soc.getOutputStream());
 		PrintWriter pw = new PrintWriter(os);
 		
+		BufferedReader br = new BufferedReader(new InputStreamReader(soc.getInputStream()));
+		
 		pw.println("ready");
 		pw.flush();
 		Thread.sleep(1000);
@@ -27,6 +29,9 @@ public class Client {
 		pw.println("1000\n Bob");
 		pw.flush();
 		System.out.println("message written to socket");
+		
+		String readOut = br.readLine();
+		System.out.println(readOut);
         //objectOut = new ObjectOutputStream(soc.getOutputStream());
         //objectIn = new ObjectInputStream(soc.getInputStream());
         
