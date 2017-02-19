@@ -6,6 +6,7 @@ public class SSoc{
 	private static ServerSocket serverSocket;
 	private static Socket[] clientSocket;
 	private static BufferedReader[] bufferedReader;
+	private static PrintWriter[] pWriter;
 	private static String inputLine;
 	private static String thisLine;
 	private static int port = 4333;
@@ -23,7 +24,7 @@ public class SSoc{
 	
 		clientSocket = new Socket[players];
 		bufferedReader = new BufferedReader[players];
-		bufferedwriter = new BufferedWriter[players];
+		pWriter = new PrintWriter[players];
 		int finPlayers=players;
 		// Wait for client to connect on 63400
 		try{
@@ -31,7 +32,7 @@ public class SSoc{
 			for(int i=0;i<players;i++){
 				clientSocket[i]= serverSocket.accept();
 				bufferedReader[i] = new BufferedReader(new InputStreamReader(clientSocket[i].getInputStream()));
-				bufferedWriter[i] = new BufferedWriter(new OutputStreamReader(clientSocket[i].getOutputStream()));
+				pWriter[i] = new PrintWriter(new OutputStreamWriter(clientSocket[i].getOutputStream()));
 			}
 			System.out.println("start");
 			while(!gameOver){
@@ -43,6 +44,8 @@ public class SSoc{
 							while (!ready&&(thisLine = bufferedReader[i].readLine()) != null) {
 								if(thisLine.equalsIgnoreCase("ready")){
 									ready=true;
+									//send back ready
+									pWriter[i].println("ready");
 								}
 							}
 						}
@@ -57,6 +60,8 @@ public class SSoc{
 									if(thisLine.equalsIgnoreCase("done")){
 										System.out.println("done");
 										done=true;
+										//send back done
+										pWriter[i].println("done");
 									}
 								}
 							}
@@ -92,11 +97,11 @@ public class SSoc{
 				}
 
 			}
-			System.out.println(topPlayer + "got "+topScore+" meters high" );
-			for(Socket cs : clientSocket){
-				DataOutputStream os = new DataOutputStream(cs.getOutputStream());
-				os.writeBytes(topPlayer + " got "+topScore+" meters high" );
-				
+			String scoreString = topPlayer + "got "+topScore+" meters high";
+			System.out.println(scoreString);
+			for(int i=0;i<players;i++){
+				//send top score
+				pWriter[i].println(scoreString);
 			}
 			//push to devices, topPlayer
 		}
