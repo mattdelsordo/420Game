@@ -4,12 +4,23 @@ package com.threebetasonematt.a420game;
 Handles logging in and starting a game.
  */
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class InitialActivity extends AppCompatActivity {
@@ -18,11 +29,15 @@ public class InitialActivity extends AppCompatActivity {
 
     Button mPlayButton;
     EditText mEnterUsername;
+    SharedPreferences prefs = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        prefs = getSharedPreferences("com.threebetasonematt.a420game", MODE_PRIVATE);
+
 
         //get reference for username box
         mEnterUsername = (EditText)findViewById(R.id.edittext_enter_username);
@@ -47,5 +62,29 @@ public class InitialActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(prefs.getBoolean("firstrun", true)){
+            //check for barometer, kick out of app if none
+            if(!barometerCheck()){
+                Toast.makeText(InitialActivity.this, "Your phone doesn't have a barometer and so this game won't work properly. Sorry.", Toast.LENGTH_LONG).show();
+            }
+
+            prefs.edit().putBoolean("firstrun", false).commit();
+        }
+    }
+
+    //checks whether the decive has a barometer on it, this game requires one
+    public boolean barometerCheck(){
+        //do check for barometer
+        PackageManager manager = getPackageManager();
+        boolean hasBarometer = manager.hasSystemFeature(PackageManager.FEATURE_SENSOR_BAROMETER);
+        return hasBarometer;
     }
 }
