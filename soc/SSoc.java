@@ -76,7 +76,7 @@ public class SSoc{
 							if(bufferedReader[i].ready())
 							while (!gameOver&&(thisLine = bufferedReader[i].readLine()) != null) {
 								if(thisLine.matches(".*\\d.*")){
-									System.out.println("Score");
+									System.out.println("Score "+thisLine);
 									if(Integer.parseInt(thisLine)>topScore){
 										higher=true;
 										topScore=Integer.parseInt(thisLine);

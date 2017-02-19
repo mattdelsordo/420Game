@@ -74,10 +74,10 @@ public class HostLobbyActivity extends AppCompatActivity{
             pw.println("done");
             pw.flush();
             Thread.sleep(4000);
-            pw.println("1000\n Bob");
+            pw.println("3024\nTim");
             pw.flush();
         }
-        catch(Exception e){}
+        catch(Exception e){mAddressLabel.setText("butts");}
 
 
 
