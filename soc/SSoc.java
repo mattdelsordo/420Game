@@ -17,8 +17,6 @@ public class SSoc{
 	private static String topPlayer = "";
 	private static float topScore = (float)Integer.MIN_VALUE;
 
-+
-
 	public static void main(String[] args){
 
 
