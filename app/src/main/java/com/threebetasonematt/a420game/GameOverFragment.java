@@ -48,6 +48,8 @@ public class GameOverFragment extends Fragment {
         try{
 
             BufferedReader reader = SocketHandler.getBR();
+            while(!reader.ready()){}
+
             thisLine = reader.readLine();
 
         }catch(Exception e){}

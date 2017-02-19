@@ -79,6 +79,9 @@ public class SSoc{
 							boolean higher=false;
 							if(bufferedReader[i].ready())
 							while (!gameOver&&(thisLine = bufferedReader[i].readLine()) != null) {
+								if(higher){
+									topPlayer = thisLine;
+								}
 								if(thisLine.matches(".*\\d.*")){
 									System.out.println("Score "+thisLine);
 									if(Float.parseFloat(thisLine)>topScore){
@@ -91,9 +94,7 @@ public class SSoc{
 									}
 									System.out.println(finPlayers);
 								}
-								if(higher){
-									topPlayer = thisLine;
-								}
+
 							}
 						}
 						catch(Exception e){}
