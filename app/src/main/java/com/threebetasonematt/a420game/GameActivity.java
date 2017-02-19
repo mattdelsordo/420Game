@@ -86,7 +86,7 @@ public class GameActivity extends AppCompatActivity implements TimerFragment.Gam
             pw.println("done");
             pw.flush();
             Thread.sleep(1500);
-            pw.println(String.valueOf(altitudeChange)+"\n"+getIntent().getExtras().getString(constants.KEY_USERNAME));
+            pw.println(String.valueOf(altitudeChange)+"\n"+getIntent().getStringExtra(constants.KEY_USERNAME));
             pw.flush();
         }
         catch(Exception e){}

@@ -46,7 +46,6 @@ public class SSoc{
 								if(thisLine.equalsIgnoreCase("ready")){
 									ready=true;
 									//send back ready
-									for(int k=0; k<500;k++)
 									for(int j=0; j<players;j++ ){
 										pWriter[j].println("ready");
 									}
@@ -106,7 +105,7 @@ public class SSoc{
 			}
 			String scoreString = topPlayer + " got "+topScore+" meters high";
 			System.out.println(scoreString);
-			Thread.sleep(4000);
+			Thread.sleep(3000);
 			for(int i=0;i<players;i++){
 				//send top score
 				pWriter[i].println(scoreString);

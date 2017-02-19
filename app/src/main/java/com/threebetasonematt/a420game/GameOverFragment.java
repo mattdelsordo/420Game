@@ -46,11 +46,11 @@ public class GameOverFragment extends Fragment {
         mWinnerMessage = (TextView)view.findViewById(R.id.victor_message);
         String thisLine="";
         try{
-
             BufferedReader reader = SocketHandler.getBR();
-            while(!reader.ready()){}
-
             thisLine = reader.readLine();
+            while(reader.ready()){
+                thisLine = reader.readLine();
+            }
 
         }catch(Exception e){}
         //get message from server
