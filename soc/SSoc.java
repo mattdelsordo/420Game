@@ -10,7 +10,7 @@ public class SSoc{
 	private static String inputLine;
 	private static String thisLine;
 	private static int port = 4333;
-	private static int players = 1;
+	private static int players = 2;
 	private static boolean ready=false;
 	private static boolean done=false;
 	private static boolean gameOver=false;
@@ -77,9 +77,6 @@ public class SSoc{
 							boolean higher=false;
 							if(bufferedReader[i].ready())
 							while (finPlayers>0&&(thisLine = bufferedReader[i].readLine()) != null) {
-								if(higher){
-									topPlayer = thisLine;
-								}
 								if(thisLine.matches(".*\\d.*")){
 									System.out.println("Score "+thisLine);
 									if(Float.parseFloat(thisLine)>topScore){
@@ -87,6 +84,10 @@ public class SSoc{
 										topScore=Float.parseFloat(thisLine);
 									}
 									finPlayers--;
+								}
+								if(higher){
+									thisLine = bufferedReader[i].readLine();
+									topPlayer = thisLine;
 								}
 							}
 							if(finPlayers<=0){
