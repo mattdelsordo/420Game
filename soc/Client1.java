@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class Client {
+public class Client1 {
 
   static ObjectOutputStream objectOut;
   static ObjectInputStream objectIn;
@@ -24,7 +24,7 @@ public class Client {
 		pw.println("done");
 		pw.flush();
 		Thread.sleep(1000);
-		pw.println("1000\n Bob");
+		pw.println("2000\n Rob");
 		pw.flush();
 		System.out.println("message written to socket");
         //objectOut = new ObjectOutputStream(soc.getOutputStream());
