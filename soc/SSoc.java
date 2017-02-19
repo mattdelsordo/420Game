@@ -86,6 +86,9 @@ public class SSoc{
 										topScore=Float.parseFloat(thisLine);
 									}
 									finPlayers--;
+									if(finPlayers<=0){
+										gameOver=true;
+									}
 									System.out.println(finPlayers);
 								}
 								if(higher){
@@ -95,10 +98,7 @@ public class SSoc{
 						}
 						catch(Exception e){}
 					}
-					if(finPlayers<=0){
-						gameOver=true;
-						break;
-					}
+
 
 				}
 
