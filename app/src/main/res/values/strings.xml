@@ -14,7 +14,7 @@
     <string name="_ready">Ready?</string>
     <string name="welcome_to_lobby">Welcome to lobby</string>
     <string name="connect">Connect</string>
-    <string name="default_lobby_address">000000000</string>
+    <string name="default_lobby_address">00000000</string>
     <string name="blank_username_error">Please enter a username!</string>
     <string name="blank_address_error">Please enter an address.</string>
     <string name="invalid_address_error">Invalid room address!</string>
