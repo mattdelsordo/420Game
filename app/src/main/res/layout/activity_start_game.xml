@@ -57,6 +57,7 @@
                 android:id="@+id/button_host_game"/>
 
         </LinearLayout>
+
     </RelativeLayout>
 
 

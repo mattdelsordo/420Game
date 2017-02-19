@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -24,10 +26,21 @@ public class HostLobbyActivity extends AppCompatActivity{
     private SensorManager mSensorManager = null;
     float mCurrentPressure = 0;
 
+    ListView mLobbyList;
+    ArrayAdapter<String> mUserList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host_lobby);
+
+        //set up listview
+        String[] templist = {};
+        mUserList = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, templist);
+        mLobbyList = (ListView)findViewById(R.id.host_user_list);
+        mLobbyList.setAdapter(mUserList);
+
+
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE),SensorManager.SENSOR_DELAY_FASTEST);
@@ -61,7 +74,10 @@ public class HostLobbyActivity extends AppCompatActivity{
             }
         });
 
+
     }
+
+    //handles getting barometric pressure data
     private SensorEventListener mSensorListener = new SensorEventListener() {
 
         @Override
@@ -85,5 +101,11 @@ public class HostLobbyActivity extends AppCompatActivity{
         }
     };
 
+
+    //fills the displayed list with users from the server
+    public void populateList(String[] userList){
+        mUserList.clear();
+        mUserList.addAll(userList);
+    }
 
 }
