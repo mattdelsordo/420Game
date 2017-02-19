@@ -29,6 +29,7 @@ public class SSoc{
 		// Wait for client to connect on 63400
 		try{
 			serverSocket = new ServerSocket(port);
+			System.out.println("pre start");
 			for(int i=0;i<players;i++){
 				clientSocket[i]= serverSocket.accept();
 				bufferedReader[i] = new BufferedReader(new InputStreamReader(clientSocket[i].getInputStream()));
