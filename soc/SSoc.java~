@@ -68,6 +68,7 @@ public class SSoc{
 							if(bufferedReader[i].ready())
 							while (!gameOver&&(thisLine = bufferedReader[i].readLine()) != null) {
 								if(thisLine.matches(".*\\d.*")){
+								System.out.println("here");
 									if(Integer.parseInt(thisLine)>topScore){
 										higher=true;
 										topScore=Integer.parseInt(thisLine);
@@ -85,6 +86,7 @@ public class SSoc{
 					}
 					if(finPlayers==0){
 						gameOver=true;
+						System.out.println("here");
 					}
 			
 				}
@@ -93,7 +95,7 @@ public class SSoc{
 			System.out.println(topPlayer + "got "+topScore+" meters high" );
 			for(Socket cs : clientSocket){
 				DataOutputStream os = new DataOutputStream(cs.getOutputStream());
-				os.writeBytes(topPlayer + " got "+topScore+" meters high" );
+				os.writeBytes(topPlayer + "got "+topScore+" meters high" );
 				
 			}
 			//push to devices, topPlayer
