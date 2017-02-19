@@ -83,7 +83,7 @@ public class SSoc{
 									System.out.println("Score "+thisLine);
 									if(Integer.parseInt(thisLine)>topScore){
 										higher=true;
-										topScore=Integer.parseInt(thisLine);
+										topScore=Float.parseFloat(thisLine);
 									}
 									finPlayers--;
 									System.out.println(finPlayers);
@@ -97,6 +97,7 @@ public class SSoc{
 					}
 					if(finPlayers<=0){
 						gameOver=true;
+						break;
 					}
 
 				}

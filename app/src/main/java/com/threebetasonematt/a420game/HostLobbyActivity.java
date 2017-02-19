@@ -89,20 +89,20 @@ public class HostLobbyActivity extends AppCompatActivity{
                 catch(Exception e){mAddressLabel.setText("butts");}
 
                 //wait for start from server
-                try{
-                    String thisLine;
-                    BufferedReader reader = SocketHandler.getBR();
-                    System.out.println("before ready loop");
-                    while(true){
-                        thisLine = reader.readLine();
-                        System.out.println(thisLine);
-                        if(thisLine.equalsIgnoreCase("ready"));
-                            break;
-                    }
-                }catch(Exception e){
-                    e.printStackTrace();
-                    mAddressLabel.setText("error");}
-                System.out.println("after ready loop");
+//                try{
+//                    String thisLine;
+//                    BufferedReader reader = SocketHandler.getBR();
+//                    System.out.println("before ready loop");
+//                    while(true){
+//                        thisLine = reader.readLine();
+//                        System.out.println(thisLine);
+//                        if(thisLine.equalsIgnoreCase("ready"));
+//                            break;
+//                    }
+//                }catch(Exception e){
+//                    e.printStackTrace();
+//                    mAddressLabel.setText("error");}
+//                System.out.println("after ready loop");
 
                 //begin game
                 Intent intent = new Intent(HostLobbyActivity.this, GameActivity.class);

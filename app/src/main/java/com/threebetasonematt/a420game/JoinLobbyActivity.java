@@ -81,14 +81,14 @@ public class JoinLobbyActivity extends AppCompatActivity {
 
                 //wait for start from server
 
-                try{
-                    String thisLine;
-                    BufferedReader reader = SocketHandler.getBR();
-                    while(!(reader.readLine()).equalsIgnoreCase("ready")){
-
-                    }
-
-                }catch(Exception e){}
+//                try{
+//                    String thisLine;
+//                    BufferedReader reader = SocketHandler.getBR();
+//                    while(!(reader.readLine()).equalsIgnoreCase("ready")){
+//
+//                    }
+//
+//                }catch(Exception e){}
 
                 //begin game
                 Intent intent = new Intent(JoinLobbyActivity.this, GameActivity.class);
