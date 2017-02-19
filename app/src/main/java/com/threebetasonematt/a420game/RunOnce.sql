@@ -17,9 +17,9 @@ CREATE TABLE Game (
     winStatus binary(1) NOT NULL,
 );
 
-DROP TABLE IF EXISTS Leader;
+DROP TABLE IF EXISTS Leaderboard;
 
-CREATE TABLE Leader (
+CREATE TABLE Leaderboard (
     userID varchar(10) FOREIGN KEY REFERENCES User(userID),
     highScore decimal(10000, 2) FOREIGN KEY REFERENCES User(highScore)
 );
